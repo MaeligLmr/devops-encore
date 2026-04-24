@@ -3,17 +3,23 @@ pipeline {
   stages {
     stage("Install") {
       steps {
-        bat 'npm ci'
+        dir('app') {
+          bat 'npm ci'
+        }
       }
     }
     stage("Lint") {
       steps {
-        bat 'npm run lint'
+        dir('app') {
+          bat 'npm run lint'
+        }
       }
     }
     stage("Test") {
       steps {
-        bat 'npm test'
+        dir('app') {
+          bat 'npm test'
+        }
       }
     }
   }
