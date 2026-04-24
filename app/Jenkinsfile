@@ -6,5 +6,15 @@ pipeline {
         bat 'npm ci'
       }
     }
+    stage("Lint") {
+      steps {
+        bat 'npm run lint'
+      }
+    }
+    stage("Test") {
+      steps {
+        bat 'npm test'
+      }
+    }
   }
 }
